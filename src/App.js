@@ -10,30 +10,24 @@ import Analysis from './pages/Analysis//Analysis';
 
 function App() {
 
-  const [usersData, setUsersData] = useState();
+  const [usersData, setUsersData] = useState([]);
+  
+  //Get users data
+  useEffect(() => {
+    const URL = "https://raw.githubusercontent.com/Alex-Hlatsko/react-analysis-users/master/public/data.json";
 
-  //Get data function
-  const fetchDataJSON = async() => {
-    const URL = "link"
-    await axios.get(URL)
+    axios.get(URL)
     .then(res => {
-      console.log(res);
-      return res;
+      setUsersData(res.data);
     })
     .catch(err => {
       console.error(err);
     });
-  }
-  
-  useEffect(() => {
-    const users = fetchDataJSON();
-    setUsersData(users);
-  }, [])
-  
+  }, [setUsersData])
 
   return (
     <Routes>
-      <Route path='/' element={<Home/>}/>
+      <Route path='/' element={<Home users={usersData}/>}/>
       <Route path='/users' element={<Users/>}/>
       <Route path='/analysis' element={<Analysis/>}/>
     </Routes>

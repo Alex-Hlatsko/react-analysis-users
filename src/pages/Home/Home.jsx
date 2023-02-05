@@ -1,6 +1,7 @@
 import React from 'react'
 
-const Home = () => {
+const Home = ({users}) => {
+  console.log(users)
   return (
     <>
       <div>Home</div>
