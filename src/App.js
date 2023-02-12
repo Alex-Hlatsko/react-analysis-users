@@ -5,8 +5,6 @@ import axios from 'axios';
 import './App.css';
 
 import Home from './pages/Home/Home';
-import Users from  './pages/Users/Users';
-import Analysis from './pages/Analysis//Analysis';
 
 function App() {
 
@@ -28,8 +26,6 @@ function App() {
   return (
     <Routes>
       <Route path='/' element={<Home users={usersData}/>}/>
-      <Route path='/users' element={<Users/>}/>
-      <Route path='/analysis' element={<Analysis/>}/>
     </Routes>
   );
 }
