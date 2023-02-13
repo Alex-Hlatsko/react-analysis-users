@@ -1,0 +1,28 @@
+table{
+    width: 80%;
+    text-align: center;
+}
+th{
+    font-weight: 500;
+    text-transform: uppercase;
+}
+table td{
+    border-bottom: 1px solid black;
+    padding: 0.4rem;
+}
+ul{
+    display: flex;
+}
+ul li{
+    margin: 0.5rem;
+    width: 2rem;
+    height: 2rem;
+    text-align: center;
+    background-color: #7a98c7;
+    border-radius: 0.3rem;
+    border: solid 3px #4c78bf;
+    color: white;
+}
+.selected{
+    color: #1f5ec3;
+}

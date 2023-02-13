@@ -1,11 +1,15 @@
 import React from 'react'
+import './styles.css'
+import ReactPaginate from 'react-paginate';
 
-const Table = ({users}) => {
+const Table = ({users, pageCount, handlePageClick}) => {
+
   return (
-    <table>
+    <div className='w-full flex flex-col items-center'>
+      <table>
         {/* Table Header */}
-        <thead>
-          <tr>
+        <thead className=' bg-gray-200'>
+          <tr className=' '>
             <th>Name</th>
             <th>Contact</th>
             <th>Money</th>
@@ -14,17 +18,17 @@ const Table = ({users}) => {
         {/* Table Body */}
         <tbody>
           {users.map(e => (
-          <tr key={e.user_id}>
+          <tr key={e?.user_id}>
             {/* Name Column */}
             <td>
-              <div className="flex items-center">
-                <img src={e.user_img} alt="user_img" className='rounded-full' style={{backgroundColor: e.user_theme}}/>
+              <div className="flex items-center text-start">
+                <img src={e.user_img} alt="user_img" className='rounded-full mr-2' style={{backgroundColor: e.user_theme}}/>
                 <div>
-                  <h1>{e.user_first_name} {e.user_last_name}</h1>
+                  <h1 className=' font-semibold'>{e.user_first_name} {e.user_last_name}</h1>
                   {e.user_online ? 
-                  <p className='text-green-500'>Online</p>
+                  <p className='inline px-1 border-solid border-2 border-green-500 text-green-500 font-semibold'>Online</p>
                   :
-                  <p className='text-red-500'>Offline</p>}
+                  <p className='inline px-1 border-solid border-2 border-red-500 text-red-500 font-bold'>Offline</p>}
                 </div>
               </div>
             </td>
@@ -39,8 +43,18 @@ const Table = ({users}) => {
           </tr>
           ))}
         </tbody>
-
       </table>
+
+      <ReactPaginate
+        breakLabel="..."
+        nextLabel=">"
+        onPageChange={handlePageClick}
+        pageRangeDisplayed={3}
+        pageCount={pageCount}
+        previousLabel="<"
+        renderOnZeroPageCount={null}
+      />
+    </div>
   )
 }
 
