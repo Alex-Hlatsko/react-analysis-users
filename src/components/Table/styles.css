@@ -12,6 +12,7 @@ table td{
 }
 ul{
     display: flex;
+    margin-bottom: 3rem;
 }
 ul li{
     margin: 0.5rem;
@@ -22,6 +23,10 @@ ul li{
     border-radius: 0.3rem;
     border: solid 3px #4c78bf;
     color: white;
+}
+ul li a{
+    width: 100%;
+    height: 100%;
 }
 .selected{
     color: #1f5ec3;

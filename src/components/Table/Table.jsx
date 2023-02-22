@@ -1,11 +1,11 @@
 import React from 'react'
-import './styles.css'
 import ReactPaginate from 'react-paginate';
+import './styles.css'
 
-const Table = ({users, pageCount, handlePageClick}) => {
+const Table = ({users, pageCount, handlePageClick, sort}) => {
 
   return (
-    <div className='w-full flex flex-col items-center'>
+    <div className='mt-4 flex flex-col items-center'>
       <table>
         {/* Table Header */}
         <thead className=' bg-gray-200'>

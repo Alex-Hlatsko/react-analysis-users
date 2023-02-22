@@ -1,31 +1,19 @@
-import React, {useState} from 'react'
-import Table from '../../components/Table/Table'
-import Header from '../../components/Header/Header'
-import Footer from '../../components/Footer/Footer'
+import React from 'react'
+import { Link } from 'react-router-dom'
 
-const Home = ({users}) => {
-  const itemsPerPage = 5;
-  const [itemOffset, setItemOffset] = useState(0);
-
-  // Simulate fetching items from another resources.
-  // (This could be items from props; or items loaded in a local state
-  // from an API endpoint with useEffect and useState)
-  const endOffset = itemOffset + itemsPerPage;
-  const currentItems = users.slice(itemOffset, endOffset);
-  const pageCount = Math.ceil(users.length / itemsPerPage);
-
-  // Invoke when user click to request another page.
-  const handlePageClick = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % users.length;
-    setItemOffset(newOffset);
-  };
+const Home = () => {
 
   return (
-    <>
-      <Header/>
-      <Table users={currentItems} pageCount={pageCount} handlePageClick={handlePageClick}/>
-      <Footer/>
-    </>
+    <div className="mt-6 m-auto w-11/12 flex justify-between items-center">
+      <div className="content w-1/2">
+        <h1 className='text-4xl font-semibold'>Сontrol your business</h1>
+        <p className='text-base text-gray-600 w-5/6 mt-5'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos perspiciatis commodi, veritatis adipisci necessitatibus, temporibus similique aliquam unde minus sapiente exercitationem ipsum!</p>
+        <button className='mt-8'><Link to="/statistics" className='btn'>Start</Link></button>
+      </div>
+      <div className="img w-1/2">
+        <img src="./img/home.png" alt="" />
+      </div>
+    </div>
   )
 }
 

@@ -5,6 +5,10 @@ import axios from 'axios';
 import './App.css';
 
 import Home from './pages/Home/Home';
+import Statistics from './pages/Statistics/Statistics';
+import Clients from './pages/Clients/Clients';
+import Analytics from './pages/Anali/Analytics';
+import Layout from './components/Layout/Layout';
 
 function App() {
 
@@ -25,7 +29,12 @@ function App() {
 
   return (
     <Routes>
-      <Route path='/' element={<Home users={usersData}/>}/>
+      <Route path='/' element={<Layout/>}>
+        <Route path='/' element={<Home users={usersData}/>}/>
+        <Route path='/statistics' element={<Statistics users={usersData}/>}/>
+        <Route path='/clients' element={<Clients users={usersData}/>}/>
+        <Route path='/analitics' element={<Analytics users={usersData}/>}/>
+      </Route>
     </Routes>
   );
 }
