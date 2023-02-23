@@ -1,0 +1,13 @@
+.filter{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+}
+select{
+    margin: 0 4rem;
+    padding: 0.5rem 1rem;
+    background-color: var(--darkgray);
+    border-radius: 0.3rem;
+    border: 1px solid var(--gray);
+    direction: none;
+}

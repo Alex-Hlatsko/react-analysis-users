@@ -4,7 +4,7 @@ import './styles.css'
 
 const Header = () => {
   return (
-    <header className='bg-white py-3 px-8'>
+    <header className='py-3 px-8'>
       <nav className='flex justify-end'>
         <NavLink className="mx-3 text-lg" to="/">Home</NavLink>
         <NavLink className="mx-3 text-lg" to="/statistics">Statistics</NavLink>

@@ -1,16 +1,17 @@
 import React, {useState} from 'react'
 import Table from '../../components/Table/Table'
 import Filter from '../../components/Filter/Filter'
+import './styles.css'
 
 const Statistics = ({users}) => {
   const itemsPerPage = 10;
   const [itemOffset, setItemOffset] = useState(0);
 
+  //Filter Data
   const [usersData, setUsersData] = useState(users);
 
 
-  //Sorted Data
-
+  //Filter  Settings
   const filterSettings = {
     online: null,
     gender: null,
@@ -18,6 +19,7 @@ const Statistics = ({users}) => {
   }
 
   const submitValue = (option, data) => {
+    //Change Filter Settings
     if(option === 'online'){
       data === "null" ? filterSettings.online = null : filterSettings.online = data;
       
@@ -29,6 +31,7 @@ const Statistics = ({users}) => {
       
     }
 
+    //Set Filter Data
     setUsersData(
       users.filter((e) => {
         let data = users; 
@@ -49,23 +52,6 @@ const Statistics = ({users}) => {
     )
   }
 
-
-  // const usersData = users.filter((e) => {
-  //   let data = users; 
-  //   if(filterSettings.online !== null){
-  //     data = e.user_online === (filterSettings.online === "online" ? true : false)
-
-  //   }
-  //   if(filterSettings.gender !== null){
-  //     data = e.user_gender === filterSettings.gender
-
-  //   }
-  //   if(filterSettings.language !== null){
-  //     data = e.user_language === filterSettings.language
-
-  //   }
-  //   return data
-  // })
   // Simulate fetching items from another resources.
   // (This could be items from props; or items loaded in a local state
   // from an API endpoint with useEffect and useState)
@@ -80,10 +66,10 @@ const Statistics = ({users}) => {
   };
 
   return (
-      <>
+      <div>
         <Filter submitValue={submitValue}/>
         <Table users={currentItems} pageCount={pageCount} handlePageClick={handlePageClick}/>
-      </>
+      </div>
   )
 }
 

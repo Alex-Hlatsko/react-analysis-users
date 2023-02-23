@@ -9,8 +9,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #F8F9FB;
+  background-color: #181A20;
   box-sizing: border-box;
+  color: var(--white);
 }
 
 code {
@@ -18,15 +19,11 @@ code {
     monospace;
 }
 
-.btn{
-  padding: 0.5rem 2rem;
-  border-radius: 0.5rem;
-  background-color: #91A0E2;
-  color: #ffffff;
-  border: solid 2px #91A0E2;
-  transition: 0.2s;
-}
-.btn:hover{
-  background-color: #ffffff;
-  color: #91A0E2;
+:root{
+  --black: #181A20;
+  --darkgray: #2B2F38;
+  --gray: #5E677C;
+  --white: #ffffff;
+  --main: #b119b6;
+  --gradient: linear-gradient(180deg, #D248B4 21.67%, #AA46CD 100%);
 }

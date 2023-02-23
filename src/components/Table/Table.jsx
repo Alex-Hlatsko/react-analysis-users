@@ -2,13 +2,13 @@ import React from 'react'
 import ReactPaginate from 'react-paginate';
 import './styles.css'
 
-const Table = ({users, pageCount, handlePageClick, sort}) => {
+const Table = ({users, pageCount, handlePageClick}) => {
 
   return (
     <div className='mt-4 flex flex-col items-center'>
       <table>
         {/* Table Header */}
-        <thead className=' bg-gray-200'>
+        <thead>
           <tr className=' '>
             <th>Name</th>
             <th>Contact</th>

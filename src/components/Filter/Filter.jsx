@@ -1,9 +1,10 @@
 import React from 'react'
+import './styles.css'
 
 const Filter = ({submitValue}) => {
     
   return (
-    <>
+    <div className='filter'>
         <select onChange={(e) => submitValue('online', e.target.value)}>
             <option value="null">All</option>
             <option value="online">Online</option>
@@ -19,7 +20,7 @@ const Filter = ({submitValue}) => {
             <option value="Female">Female</option>
             <option value="Male">Male</option>
         </select>
-    </>
+    </div>
   )
 }
 
