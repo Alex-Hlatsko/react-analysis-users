@@ -9,14 +9,11 @@ const Statistics = ({users}) => {
 
   //Filter Data
   const [usersData, setUsersData] = useState(users);
-
-
-  //Filter  Settings
-  const filterSettings = {
+  const [filterSettings, setFilterSettings] = useState({
     online: null,
     gender: null,
     language: null,
-  }
+  })
 
   const submitValue = (option, data) => {
     //Change Filter Settings
@@ -30,6 +27,7 @@ const Statistics = ({users}) => {
       data === "null" ? filterSettings.gender = null : filterSettings.gender = data;
       
     }
+    console.log(filterSettings)
 
     //Set Filter Data
     setUsersData(
