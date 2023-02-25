@@ -30,24 +30,20 @@ const Statistics = ({users}) => {
     console.log(filterSettings)
 
     //Set Filter Data
-    setUsersData(
-      users.filter((e) => {
-        let data = users; 
-        if(filterSettings.online !== null){
-          data = e.user_online === (filterSettings.online === "online" ? true : false)
-    
-        }
-        if(filterSettings.gender !== null){
-          data = e.user_gender === filterSettings.gender
-    
-        }
-        if(filterSettings.language !== null){
-          data = e.user_language === filterSettings.language
-    
-        }
-        return data
-      })
-    )
+    setUsersData(() => {
+      let data = users;
+      if(filterSettings.online !== null){
+        data = data.filter((e) => e.user_online === (filterSettings.online === 'online' ? true : false))
+      }
+      if(filterSettings.gender !== null){
+        data = data.filter((e) => e.user_gender === filterSettings.gender)
+      }
+      if(filterSettings.language !== null){
+        data = data.filter((e) => e.user_language === filterSettings.language)
+  
+      }
+      return data;
+    })
   }
 
   // Simulate fetching items from another resources.
