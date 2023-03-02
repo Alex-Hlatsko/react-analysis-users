@@ -1,3 +1,10 @@
+.section{
+    min-height: 86vh;
+    width: 95%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+}
 .btn{
     padding: 0.5rem 2rem;
     border-radius: 0.5rem;

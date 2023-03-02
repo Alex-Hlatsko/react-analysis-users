@@ -1,15 +1,16 @@
 import React, { useState } from 'react'
 import Diagram from '../../components/Diagram/Diagram'
 import DiagramFilter from '../../components/DiagramFilter/DiagramFilter'
+import './styles.css'
 
 const Clients = ({ users }) => {
     //Data for Diagram
     const [diagramData, setDiagramData] = useState({
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: [],
         datasets: [
             {
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
+                label: 'Analize your users',
+                data: [],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
@@ -50,41 +51,122 @@ const Clients = ({ users }) => {
 
         if(diagramSettings.value === 'people' & diagramSettings.type === 'pie'){
             setDiagramData({
-                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                labels: ['Online', 'Offline'],
                 datasets: [
                     {
-                        label: '# of Votes',
+                        type: 'pie',
+                        label: 'Online and Offline Users',
                         data: [(users.filter((e)=>e.user_online === true)).length, (users.filter((e)=>e.user_online === false)).length],
                         backgroundColor: [
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(255, 206, 86, 0.2)',
-                            'rgba(75, 192, 192, 0.2)',
-                            'rgba(153, 102, 255, 0.2)',
-                            'rgba(255, 159, 64, 0.2)',
+                            'rgba(166, 30, 238, 0.4)',
+                            'rgba(245, 164, 36, 0.4)',
                         ],
                         borderColor: [
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)',
-                            'rgba(255, 159, 64, 1)',
+                            'rgba(166, 30, 238, 1)',
+                            'rgba(245, 164, 36, 1)',
                         ],
                         borderWidth: 1,
                     },
                 ],
             })
         }
-        // setCounter(counter+1)
+        if(diagramSettings.value === 'people' & diagramSettings.type === 'bar'){
+            setDiagramData({
+                labels: ['Online', 'Offline'],
+                datasets: [
+                    {
+                        type: 'bar',
+                        label: 'Online and Offline Users',
+                        data: [(users.filter((e)=>e.user_online === true)).length, (users.filter((e)=>e.user_online === false)).length],
+                        backgroundColor: [
+                            'rgba(166, 30, 238, 0.4)',
+                            'rgba(245, 164, 36, 0.4)',
+                        ],
+                        borderColor: [
+                            'rgba(166, 30, 238, 1)',
+                            'rgba(245, 164, 36, 1)',
+                        ],
+                        borderWidth: 1,
+                    },
+                ],
+            })
+        }
+        if(diagramSettings.value === 'gender' & diagramSettings.type === 'pie'){
+            setDiagramData({
+                labels: ['Female', 'Male'],
+                datasets: [
+                    {
+                        type: 'pie',
+                        label: 'Genders',
+                        data: [(users.filter((e)=>e.user_gender === 'Male')).length, (users.filter((e)=>e.user_gender === 'Female')).length],
+                        backgroundColor: [
+                            'rgba(166, 30, 238, 0.4)',
+                            'rgba(245, 164, 36, 0.4)',
+                        ],
+                        borderColor: [
+                            'rgba(166, 30, 238, 1)',
+                            'rgba(245, 164, 36, 1)',
+                        ],
+                        borderWidth: 1,
+                    },
+                ],
+            })
+        }
+        if(diagramSettings.value === 'gender' & diagramSettings.type === 'bar'){
+            setDiagramData({
+                labels: ['Female', 'Male'],
+                datasets: [
+                    {
+                        type: 'bar',
+                        label: 'Genders',
+                        data: [(users.filter((e)=>e.user_gender === 'Male')).length, (users.filter((e)=>e.user_gender === 'Female')).length],
+                        backgroundColor: [
+                            'rgba(166, 30, 238, 0.4)',
+                            'rgba(245, 164, 36, 0.4)',
+                        ],
+                        borderColor: [
+                            'rgba(166, 30, 238, 1)',
+                            'rgba(245, 164, 36, 1)',
+                        ],
+                        borderWidth: 1,
+                    },
+                ],
+            })
+        }
+        if(diagramSettings.value === null || diagramSettings.type === null){
+            setDiagramData({
+                labels: [],
+                datasets: [
+                    {
+                        type: '',
+                        label: '',
+                        data: [],
+                        backgroundColor: [
+                            '',
+                        ],
+                        borderColor: [
+                            '',
+                        ],
+                        borderWidth: 0,
+                    },
+                ],
+            })
+        }
     }
 
     return (
-        <>
-            <Diagram data={diagramData} />
-            <DiagramFilter submitValue={submitValue}/>
-        </>
+        <div className='section'>
+            <div className="diagramFilter">
+                <DiagramFilter submitValue={submitValue}/>
+            </div>
+            <div className="diagrams">
+                <div className="diagram">
+                    <Diagram data={diagramData} />
+                </div>
+            </div>
+        </div>
     )
 }
+
 
 export default Clients
