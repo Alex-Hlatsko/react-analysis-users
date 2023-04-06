@@ -47,8 +47,6 @@ const Clients = ({ users }) => {
             diagramSettings.type = (value === 'null' ? null : value)
         }
 
-        console.log(diagramSettings)
-
         if(diagramSettings.value === 'people' & diagramSettings.type === 'pie'){
             setDiagramData({
                 labels: ['Online', 'Offline'],

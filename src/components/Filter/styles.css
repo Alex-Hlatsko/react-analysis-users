@@ -12,3 +12,37 @@ select{
     border: 1px solid var(--gray);
     direction: none;
 }
+
+@media only screen and (max-width: 1025px) {
+    select{
+        margin: 0 1rem;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .filter{
+        display: block;
+    }
+    .filter h1{
+        margin-top: 1rem;
+        margin-left: 1rem;
+    }
+    table{
+        width: 95%;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    table{
+        display: none;
+    }
+    ul{
+        display: flex;
+    }
+    ul li:nth-child(2){
+        display: none;
+    }
+    ul li:nth-last-child(2){
+        display: none;
+    }
+}

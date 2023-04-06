@@ -3,7 +3,7 @@ import './styles.css'
 
 const Footer = () => {
   return (
-    <footer>Footer</footer>
+    <footer>Reacr Analize 2023</footer>
   )
 }
 

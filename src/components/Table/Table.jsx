@@ -45,6 +45,25 @@ const Table = ({users, pageCount, handlePageClick}) => {
         </tbody>
       </table>
 
+      <div className="table__mobile">
+        {users.map(e => (
+          <div className="table__mobile__user">
+            <div className="user__content">
+              <div className="user__img">
+                <img src={e.user_img} alt="" style={{backgroundColor: e.user_theme}}/>
+              </div>            
+              <div className="user__info">
+                <h1 className="user__name">{e.user_first_name} {e.user_last_name}</h1>
+                <p className="user__city">{e.user_city}</p>
+                <p className="user__language">Language: <span>{e.user_language}</span></p>
+                <p className="user__gender">Gender: <span>{e.user_gender}</span></p>
+                <p className="user__contact">Email: <span> <a href={"mailto:" + e.user_email}>{e.user_email}</a></span></p>         
+              </div>    
+            </div> 
+          </div>
+        ))}
+      </div>
+
       <ReactPaginate
         breakLabel="..."
         nextLabel=">"
